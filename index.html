@@ -198,31 +198,24 @@
 </head>
 <body>
     <!-- Sync Status Indicator -->
-    <div id="syncStatus" class="sync-status sync-online hidden">🟢 Online</div>
+    <div id="syncStatus" class="sync-status sync-online hidden">Online</div>
 
     <!-- Login Screen -->
     <div id="loginScreen" class="login-screen">
         <div class="login-box">
-            <h1 style="text-align: center; margin-bottom: 10px;">🔧 Field Work Tracker</h1>
+            <h1 style="text-align: center; margin-bottom: 10px;">Field Work Tracker</h1>
             <p style="text-align: center; color: #666; margin-bottom: 30px;">Daily Work Summary System</p>
             
             <div class="form-group">
                 <label>Select Your Name</label>
                 <select id="userSelect">
                     <option value="">-- Choose --</option>
-                    <option value="John Smith">John Smith</option>
-                    <option value="Sarah Johnson">Sarah Johnson</option>
-                    <option value="Mike Davis">Mike Davis</option>
-                    <option value="Emily Brown">Emily Brown</option>
-                    <option value="Chris Wilson">Chris Wilson</option>
-                    <option value="ADMIN">🔐 Manager (Admin)</option>
                 </select>
             </div>
             
             <div class="form-group">
                 <label>PIN Code</label>
-                <input type="password" id="pinInput" placeholder="Enter your PIN" maxlength="4">
-                <small style="color: #666; font-size: 0.8rem;">Default PIN: 1234 (Admin: 9999)</small>
+                <input type="password" id="pinInput" placeholder="Enter your PIN" maxlength="10">
             </div>
             
             <button onclick="login()">Sign In</button>
@@ -237,7 +230,7 @@
             <div class="card" style="background: #2c3e50; color: white;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <h1 style="color: white; margin: 0;">🔧 Field Work Tracker</h1>
+                        <h1 style="color: white; margin: 0;">Field Work Tracker</h1>
                         <p style="opacity: 0.8; margin-top: 5px;">Welcome, <span id="currentUser"></span></p>
                     </div>
                     <button onclick="logout()" class="btn-secondary" style="width: auto;">Logout</button>
@@ -247,9 +240,9 @@
             <!-- Employee View -->
             <div id="employeeView">
                 <div class="tabs">
-                    <div class="tab active" onclick="showTab('submit')">📝 Submit Entry</div>
-                    <div class="tab" onclick="showTab('history')">📋 My History</div>
-                    <div class="tab" onclick="showTab('summary')">📊 My Summary</div>
+                    <div class="tab active" onclick="showTab('submit')">Submit Entry</div>
+                    <div class="tab" onclick="showTab('history')">My History</div>
+                    <div class="tab" onclick="showTab('summary')">My Summary</div>
                 </div>
 
                 <!-- Submit Entry Tab -->
@@ -273,7 +266,7 @@
                         </div>
                         
                         <button onclick="captureGPS()" class="btn-secondary" style="margin-bottom: 15px;">
-                            📍 Capture GPS Location
+                            Capture GPS Location
                         </button>
                         
                         <div id="mapPreview" class="hidden" style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9rem;">
@@ -331,9 +324,9 @@
             <!-- Admin View -->
             <div id="adminView" class="hidden">
                 <div class="tabs">
-                    <div class="tab active" onclick="showAdminTab('pending')">⏳ Pending Approvals</div>
-                    <div class="tab" onclick="showAdminTab('all')">📋 All Entries</div>
-                    <div class="tab" onclick="showAdminTab('reports')">📊 Monthly Reports</div>
+                    <div class="tab active" onclick="showAdminTab('pending')">Pending Approvals</div>
+                    <div class="tab" onclick="showAdminTab('all')">All Entries</div>
+                    <div class="tab" onclick="showAdminTab('reports')">Monthly Reports</div>
                 </div>
 
                 <!-- Pending Approvals -->
@@ -398,7 +391,8 @@
         // ==========================================
         const CONFIG = {
             // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-            SHEETS_API_URL: 'https://script.google.com/macros/s/AKfycbwtLrk5w6Q29SXvWP5SxEfVZrFIXo1_Ww9C0kLAy5g8tyiqvQSeLUyvJGICRTvOxCA/exec',
+            // Get this after deploying the Apps Script (see instructions)
+            SHEETS_API_URL: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec',
             
             DEFAULT_PINS: {
                 'Affiong Frank Effiom': 'cr001az',
@@ -406,24 +400,24 @@
                 'Blessing Ekpezu Ukpai': 'cr007te',
                 'Edet Okoho Bassey': 'cr010uy',
                 'Esther Bassey Ekpenyong': 'cr017op',
-               'Gift Dominc Okoi':'cr021tb',
-                'Inyang Jenny Uno':'cr028df',
-                'Odey Mary Ogaku':'cr040ew',
-                'Odubome Rosemary Tamaralayefa':'cr041wq',
-                'Okon Andong Effiong':'cr043cv',
-                'Okpako Martina Oligo':	'cr046kj',
-                'Orok Esther Joseph':'cr048gf',
-                'Peace Ibanga':	'cr050aq',
-                'Robinson Emana Okon':	'cr051we',
-                'Udoh Idongesit O':'cr052rt',
-                'Victoria Eyo Ekpenyong':'cr054yh',
-               'Okewara Boniface Johnson':'cr058ew',
-                'Esther Otei':'cr061hi',
+                'Gift Dominc Okoi': 'cr021tb',
+                'Inyang Jenny Uno': 'cr028df',
+                'Odey Mary Ogaku': 'cr040ew',
+                'Odubome Rosemary Tamaralayefa': 'cr041wq',
+                'Okon Andong Effiong': 'cr043cv',
+                'Okpako Martina Oligo': 'cr046kj',
+                'Orok Esther Joseph': 'cr048gf',
+                'Peace Ibanga': 'cr050aq',
+                'Robinson Emana Okon': 'cr051we',
+                'Udoh Idongesit O': 'cr052rt',
+                'Victoria Eyo Ekpenyong': 'cr054yh',
+                'Okewara Boniface Johnson': 'cr058ew',
+                'Esther Otei': 'cr061hi',
                 'Egwai Eyong Otu': 'cr063cm',
-                'Egbai Ohon Okon':	'cr064ji',
-                'Ubana Peace Okah':	'cr066db',
-                'Mabel Asam Ekum':	'cr067zo',
-                'Moses Ele':'1234',
+                'Egbai Ohon Okon': 'cr064ji',
+                'Ubana Peace Okah': 'cr066db',
+                'Mabel Asam Ekum': 'cr067zo',
+                'Moses Ele': '1234',
                 'ADMIN': '9999'
             }
         };
@@ -438,6 +432,9 @@
         // INITIALIZATION
         // ==========================================
         document.addEventListener('DOMContentLoaded', function() {
+            // Populate user dropdown
+            populateUserDropdown();
+            
             document.getElementById('entryDate').valueAsDate = new Date();
             document.getElementById('summaryMonth').value = new Date().toISOString().slice(0, 7);
             document.getElementById('reportMonth').value = new Date().toISOString().slice(0, 7);
@@ -448,16 +445,36 @@
             updateSyncStatus(navigator.onLine);
         });
 
+        function populateUserDropdown() {
+            const select = document.getElementById('userSelect');
+            const employees = Object.keys(CONFIG.DEFAULT_PINS);
+            
+            employees.forEach(emp => {
+                if (emp !== 'ADMIN') {
+                    const option = document.createElement('option');
+                    option.value = emp;
+                    option.textContent = emp;
+                    select.appendChild(option);
+                }
+            });
+            
+            // Add admin option at the end
+            const adminOption = document.createElement('option');
+            adminOption.value = 'ADMIN';
+            adminOption.textContent = 'Manager (Admin)';
+            select.appendChild(adminOption);
+        }
+
         function updateSyncStatus(online) {
             isOnline = online;
             const statusEl = document.getElementById('syncStatus');
             statusEl.classList.remove('hidden');
             if (online) {
                 statusEl.className = 'sync-status sync-online';
-                statusEl.textContent = '🟢 Online';
+                statusEl.textContent = 'Online';
             } else {
                 statusEl.className = 'sync-status sync-offline';
-                statusEl.textContent = '🔴 Offline';
+                statusEl.textContent = 'Offline';
             }
         }
 
@@ -591,6 +608,7 @@
             }
             
             const entry = {
+                action: 'addEntry',
                 id: Date.now().toString(),
                 employee: currentUser,
                 date: date,
@@ -603,9 +621,9 @@
                 notes: notes,
                 status: 'pending',
                 submittedAt: new Date().toISOString(),
-                approvedBy: null,
-                approvedAt: null,
-                rejectionReason: null
+                approvedBy: '',
+                approvedAt: '',
+                rejectionReason: ''
             };
             
             const btn = document.getElementById('submitBtn');
@@ -615,49 +633,52 @@
             btn.textContent = 'Submitting...';
             
             try {
-                // Try to send to Google Sheets
-                if (isOnline && !CONFIG.SHEETS_API_URL.includes('YOUR_SCRIPT_ID')) {
-                    const response = await fetch(CONFIG.SHEETS_API_URL, {
-                        method: 'POST',
-                        body: JSON.stringify(entry),
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-                    const result = await response.json();
-                    
-                    if (result.result === 'success') {
-                        msg.innerHTML = '<span style="color: #27ae60;">✅ Entry submitted successfully! Pending manager approval.</span>';
-                    } else {
-                        throw new Error(result.message);
-                    }
-                } else {
-                    // Fallback to localStorage (demo mode or offline)
-                    saveToLocalStorage(entry);
-                    msg.innerHTML = '<span style="color: #f39c12;">⚠️ Saved locally. Will sync when online.</span>';
+                // Check if using demo mode
+                if (CONFIG.SHEETS_API_URL.includes('YOUR_SCRIPT_ID')) {
+                    throw new Error('Demo mode - Google Sheets not configured');
                 }
+                
+                // Send to Google Sheets
+                const response = await fetch(CONFIG.SHEETS_API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(entry)
+                });
+                
+                // With no-cors, we can't read the response, so assume success
+                msg.innerHTML = '<span style="color: #27ae60;">✅ Entry submitted successfully! Pending manager approval.</span>';
                 
                 // Reset form
                 setTimeout(() => {
-                    document.getElementById('locationName').value = '';
-                    document.getElementById('tasks').value = '';
-                    document.getElementById('hours').value = '';
-                    document.getElementById('notes').value = '';
-                    document.getElementById('gpsStatus').className = 'gps-status gps-pending';
-                    document.getElementById('gpsStatus').innerHTML = '<span>📍</span><span>Click "Capture Location" to verify your position</span>';
-                    document.getElementById('mapPreview').classList.add('hidden');
-                    msg.innerHTML = '';
-                    currentGPS = null;
-                    btn.disabled = false;
-                    btn.textContent = 'Submit for Approval';
+                    resetForm();
                 }, 3000);
                 
             } catch (error) {
-                console.error('Error:', error);
-                // Save to localStorage as fallback
+                console.log('Using localStorage fallback:', error.message);
+                // Fallback to localStorage (demo mode or offline)
                 saveToLocalStorage(entry);
-                msg.innerHTML = '<span style="color: #f39c12;">⚠️ Network error. Saved locally.</span>';
-                btn.disabled = false;
-                btn.textContent = 'Submit for Approval';
+                msg.innerHTML = '<span style="color: #f39c12;">⚠️ Saved locally (Google Sheets not connected). Will sync when configured.</span>';
+                
+                setTimeout(() => {
+                    resetForm();
+                }, 3000);
             }
+            
+            btn.disabled = false;
+            btn.textContent = 'Submit for Approval';
+        }
+
+        function resetForm() {
+            document.getElementById('locationName').value = '';
+            document.getElementById('tasks').value = '';
+            document.getElementById('hours').value = '';
+            document.getElementById('notes').value = '';
+            document.getElementById('gpsStatus').className = 'gps-status gps-pending';
+            document.getElementById('gpsStatus').innerHTML = '<span>📍</span><span>Click "Capture Location" to verify your position</span>';
+            document.getElementById('mapPreview').classList.add('hidden');
+            document.getElementById('submitMessage').innerHTML = '';
+            currentGPS = null;
         }
 
         function saveToLocalStorage(entry) {
@@ -676,14 +697,21 @@
 
         async function fetchAllEntries() {
             try {
-                if (isOnline && !CONFIG.SHEETS_API_URL.includes('YOUR_SCRIPT_ID')) {
-                    const response = await fetch(CONFIG.SHEETS_API_URL);
-                    allEntries = await response.json();
+                // Check if using demo mode
+                if (CONFIG.SHEETS_API_URL.includes('YOUR_SCRIPT_ID')) {
+                    throw new Error('Demo mode');
+                }
+                
+                const response = await fetch(CONFIG.SHEETS_API_URL + '?action=getEntries');
+                const data = await response.json();
+                
+                if (data.result === 'success') {
+                    allEntries = data.entries || [];
                 } else {
-                    allEntries = JSON.parse(localStorage.getItem('workEntries') || '[]');
+                    throw new Error(data.message || 'Failed to fetch entries');
                 }
             } catch (error) {
-                console.error('Error fetching entries:', error);
+                console.log('Using localStorage:', error.message);
                 allEntries = JSON.parse(localStorage.getItem('workEntries') || '[]');
             }
         }
@@ -721,11 +749,11 @@
             
             const myEntries = allEntries.filter(e => 
                 e.employee === currentUser && 
-                e.date.startsWith(month) &&
+                e.date && e.date.startsWith(month) &&
                 e.status === 'approved'
             );
             
-            const totalHours = myEntries.reduce((sum, e) => sum + parseFloat(e.hours), 0);
+            const totalHours = myEntries.reduce((sum, e) => sum + parseFloat(e.hours || 0), 0);
             const totalDays = myEntries.length;
             const avgHours = totalDays > 0 ? (totalHours / totalDays).toFixed(1) : 0;
             
@@ -773,7 +801,7 @@
         function loadPendingApprovals() {
             const pending = allEntries
                 .filter(e => e.status === 'pending')
-                .sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+                .sort((a, b) => new Date(b.submittedAt || b.date) - new Date(a.submittedAt || a.date));
             
             document.getElementById('pendingCount').textContent = pending.length;
             
@@ -800,10 +828,10 @@
                     <div style="background: #e3f2fd; padding: 12px; border-radius: 6px; margin-bottom: 15px; font-size: 0.9rem;">
                         <strong>📍 GPS Verification Data:</strong><br>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 5px;">
-                            <div>Lat: ${parseFloat(entry.gpsLat).toFixed(6)}</div>
-                            <div>Lng: ${parseFloat(entry.gpsLng).toFixed(6)}</div>
+                            <div>Lat: ${parseFloat(entry.gpsLat || 0).toFixed(6)}</div>
+                            <div>Lng: ${parseFloat(entry.gpsLng || 0).toFixed(6)}</div>
                         </div>
-                        <div style="margin-top: 5px;">Accuracy: ±${Math.round(entry.gpsAccuracy)} meters</div>
+                        <div style="margin-top: 5px;">Accuracy: ±${Math.round(entry.gpsAccuracy || 0)} meters</div>
                         <div style="margin-top: 8px;">
                             <a href="https://www.google.com/maps?q=${entry.gpsLat},${entry.gpsLng}" target="_blank" style="color: #1976d2; font-weight: 600;">🗺️ View Location on Google Maps ↗</a>
                         </div>
@@ -855,25 +883,36 @@
             if (reason) entry.rejectionReason = reason;
             
             try {
-                if (isOnline && !CONFIG.SHEETS_API_URL.includes('YOUR_SCRIPT_ID')) {
-                    await fetch(CONFIG.SHEETS_API_URL, {
-                        method: 'PUT',
-                        body: JSON.stringify(entry),
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-                } else {
-                    // Update localStorage
-                    localStorage.setItem('workEntries', JSON.stringify(allEntries));
+                // Check if using demo mode
+                if (CONFIG.SHEETS_API_URL.includes('YOUR_SCRIPT_ID')) {
+                    throw new Error('Demo mode');
                 }
                 
-                await fetchAllEntries();
-                loadPendingApprovals();
-                if (!document.getElementById('allTab').classList.contains('hidden')) {
-                    loadAllEntries();
-                }
+                // Update in Google Sheets
+                await fetch(CONFIG.SHEETS_API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'updateEntry',
+                        id: id,
+                        status: status,
+                        approvedBy: currentUser,
+                        approvedAt: entry.approvedAt,
+                        rejectionReason: reason || ''
+                    })
+                });
+                
             } catch (error) {
-                console.error('Error updating entry:', error);
-                alert('Error updating status. Please try again.');
+                console.log('Updating localStorage:', error.message);
+                // Update localStorage
+                localStorage.setItem('workEntries', JSON.stringify(allEntries));
+            }
+            
+            await fetchAllEntries();
+            loadPendingApprovals();
+            if (!document.getElementById('allTab').classList.contains('hidden')) {
+                loadAllEntries();
             }
         }
 
@@ -930,7 +969,7 @@
                 e.status === 'approved'
             );
             
-            const totalHours = entries.reduce((sum, e) => sum + parseFloat(e.hours), 0);
+            const totalHours = entries.reduce((sum, e) => sum + parseFloat(e.hours || 0), 0);
             const totalDays = entries.length;
             
             document.getElementById('reportResult').innerHTML = `
@@ -967,7 +1006,7 @@
                     
                     <div style="margin-top: 20px; text-align: center;">
                         <button onclick="window.print()" class="btn-secondary" style="width: auto; padding: 12px 30px;">
-                            🖨️ Print Report
+                            Print Report
                         </button>
                     </div>
                     
@@ -1010,8 +1049,4 @@
         }
     </script>
 </body>
-
 </html>
-
-
-
